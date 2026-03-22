@@ -22,7 +22,8 @@ export const register = async (req, res) => {
       user: { id: user._id, name: user.name, email: user.email },
     });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("register error:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -45,6 +46,7 @@ export const login = async (req, res) => {
       user: { id: user._id, name: user.name, email: user.email },
     });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("login error:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
