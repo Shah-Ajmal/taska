@@ -139,6 +139,8 @@ All protected routes require an `Authorization: Bearer <token>` header.
 ## Screenshots
 
 > Add screenshots here after deployment
+![alt text](<Screenshot 2026-03-24 134651.png>)
+
 
 ## Deployment
 
