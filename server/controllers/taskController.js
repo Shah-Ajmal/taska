@@ -3,6 +3,8 @@ import Task from "../models/Task.model.js";
 export const createTask = async (req, res) => {
   const { title, description, status } = req.body;
 
+  if (!title) return res.status(400).json({ message: "Title is required" });
+
   try {
     const task = await Task.create({
       title,
@@ -12,7 +14,7 @@ export const createTask = async (req, res) => {
     });
     res.status(201).json(task);
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Failed to create task" });
   }
 };
 
@@ -23,7 +25,7 @@ export const getTasks = async (req, res) => {
     });
     res.json(tasks);
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Failed to fetch tasks" });
   }
 };
 
@@ -40,7 +42,7 @@ export const updateTask = async (req, res) => {
     });
     res.json(updated);
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Failed to update task" });
   }
 };
 
@@ -53,8 +55,8 @@ export const deleteTask = async (req, res) => {
     if (!task) return res.status(404).json({ message: "Task not found" });
 
     await task.deleteOne();
-    res.json({ message: "Task deleted" });
+    res.json({ message: "Task deleted successfully" });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Failed to delete task" });
   }
 };
