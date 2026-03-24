@@ -145,4 +145,8 @@ All protected routes require an `Authorization: Bearer <token>` header.
 - Frontend: Vercel
 - Backend: Render
 
-> Deployment URLs will be updated after deployment
+> Deployment URLs 
+
+🔗 GitHub: https://github.com/Shah-Ajmal/taska
+🌐 Frontend: https://taska-three.vercel.app
+⚙️ Backend: https://taska-7vaj.onrender.com
